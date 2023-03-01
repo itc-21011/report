@@ -1,12 +1,9 @@
-import { DateTime } from 'luxon'
-import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
+import { DateTime } from "luxon";
+import { BaseModel, column } from "@ioc:Adonis/Lucid/Orm";
 
 export default class Absence extends BaseModel {
   @column({ isPrimary: true })
   public id: number
-
-  @column()
-  public student_id: string
 
   @column()
   public kind: number
@@ -22,4 +19,7 @@ export default class Absence extends BaseModel {
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
+
+  @column()
+  public student_id: number
 }
