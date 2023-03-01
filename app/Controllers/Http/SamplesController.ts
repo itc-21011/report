@@ -6,6 +6,6 @@ export default class SamplesController {
       title: '出席管理',
       message: 'ログインされていません。'
     }
-    return ctx.view.render('reports/index', data)
+    return ctx.view.render('samples/index', data)
   }
 }
