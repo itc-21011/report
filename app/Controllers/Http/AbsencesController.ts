@@ -1,9 +1,9 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-import Absence from "App/Models/absences";
+import Absences from "App/Models/absences";
 
 export default class AbsencesController {
   public async index(ctx: HttpContextContract) {
-    const absences = await Absence.all()
+    const absences = await Absences.all()
     const data = {
       title: '届け出一覧',
       data: absences
@@ -20,7 +20,7 @@ export default class AbsencesController {
   }
 
   public async add_posted(ctx: HttpContextContract) {
-    await Absence.create(ctx.request.body())
+    await Absences.create(ctx.request.body())
     return ctx.response.redirect('/absences')
   }
 }

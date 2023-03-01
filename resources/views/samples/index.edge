@@ -4,7 +4,13 @@
 @section('body')
 @if (session.get('code'))
 
-<a href="{{route('absences.index.show')}}" class="btn btn-outline-primary">欠席届</a>
+<div class="text-center p-5">
+  <a href="{{route('absences.index.show')}}" class="btn btn-primary">
+    <h1>
+      届け出を確認
+    </h1>
+  </a>
+</div>
 @else
 <p>{{message}}</p>
 @end

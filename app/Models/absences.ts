@@ -1,9 +1,16 @@
 import { DateTime } from "luxon";
-import { BaseModel, column } from "@ioc:Adonis/Lucid/Orm";
+import { BaseModel, belongsTo, BelongsTo, column } from "@ioc:Adonis/Lucid/Orm";
+import Students from "App/Models/students";
 
 export default class Absence extends BaseModel {
   @column({ isPrimary: true })
   public id: number
+
+  @belongsTo(() => Students, {foreignKey: 'student_id'})
+  public student: BelongsTo<typeof Students>
+
+  @column()
+  public studentId: number
 
   @column()
   public kind: number
@@ -12,14 +19,11 @@ export default class Absence extends BaseModel {
   public reason: string
 
   @column()
-  public start_date: DateTime
+  public startDate: DateTime
 
   @column()
-  public end_date: DateTime
+  public endDate: DateTime
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
-
-  @column()
-  public student_id: number
 }
